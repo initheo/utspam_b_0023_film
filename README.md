@@ -236,6 +236,9 @@ flutter run
 
 ## Video Demonstrasi
 
+
+https://github.com/user-attachments/assets/f769ea41-af25-48d8-ad36-86c952b892ad
+
 **Isi Video:**
 
 1. Splash Screen & Auto-navigation
