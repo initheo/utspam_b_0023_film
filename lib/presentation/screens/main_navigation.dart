@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:utspam_b_0023_film/presentation/screens/films/films_screen.dart';
 import 'package:utspam_b_0023_film/presentation/screens/home/home_screen.dart';
+import 'package:utspam_b_0023_film/presentation/screens/profile/profile_screen.dart';
+import 'package:utspam_b_0023_film/presentation/screens/tickets/my_tickets_screen.dart';
 
 class MainNavigation extends StatefulWidget {
   final int userId;
