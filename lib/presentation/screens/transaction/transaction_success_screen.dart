@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:utspam_b_0023_film/presentation/screens/main_navigation.dart';
+import 'package:utspam_b_0023_film/utils/formatters.dart';
 
 class TransactionSuccessScreen extends StatelessWidget {
   final int userId;
@@ -23,32 +23,6 @@ class TransactionSuccessScreen extends StatelessWidget {
     required this.purchaseDate,
     required this.totalPrice,
   });
-
-  /// Mengubah angka menjadi format Rupiah
-  /// Contoh: 50000 → Rp 50.000
-  String _formatCurrency(int amount) {
-    final formatter = NumberFormat.currency(
-      locale: 'id_ID', // Locale Indonesia
-      symbol: 'Rp ', // Symbol Rupiah
-      decimalDigits: 0, // Tanpa desimal
-    );
-    return formatter.format(amount);
-  }
-
-  /// Mengubah ISO DateTime menjadi format yang mudah dibaca
-  /// Contoh: "2025-11-18T23:28:00" → "18 Nov 2025, 23:28"
-  String _formatScheduleTime(String isoDateTime) {
-    // Validasi: jika string kosong, return '-'
-    if (isoDateTime.isEmpty) return '-';
-
-    try {
-      final dateTime = DateTime.parse(isoDateTime);
-
-      return DateFormat('dd MMM yyyy, HH:mm').format(dateTime);
-    } catch (e) {
-      return isoDateTime;
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -165,7 +139,7 @@ class TransactionSuccessScreen extends StatelessWidget {
                             const SizedBox(height: 16),
                             _buildDetailRow(
                               'Jadwal Film',
-                              _formatScheduleTime(schedule),
+                              Formatters.formatScheduleTime(schedule),
                             ),
                             const Divider(height: 24),
                             _buildDetailRow('Jumlah Tiket', '$quantity tiket'),
@@ -184,7 +158,7 @@ class TransactionSuccessScreen extends StatelessWidget {
                                   ),
                                 ),
                                 Text(
-                                  _formatCurrency(totalPrice),
+                                  Formatters.formatCurrency(totalPrice),
                                   style: const TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,

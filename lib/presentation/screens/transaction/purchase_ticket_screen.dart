@@ -5,7 +5,10 @@ import 'package:utspam_b_0023_film/data/model/film_model.dart';
 import 'package:utspam_b_0023_film/data/model/transaction_model.dart';
 import 'package:utspam_b_0023_film/data/repository/schedule_repository.dart';
 import 'package:utspam_b_0023_film/data/repository/transaction_repository.dart';
+import 'package:utspam_b_0023_film/data/repository/user_repository.dart';
 import 'package:utspam_b_0023_film/presentation/screens/transaction/transaction_success_screen.dart';
+import 'package:utspam_b_0023_film/utils/formatters.dart';
+import 'package:utspam_b_0023_film/utils/ui_helpers.dart';
 
 class PurchaseTicketScreen extends StatefulWidget {
   final int userId;
@@ -28,6 +31,7 @@ class _PurchaseTicketScreenState extends State<PurchaseTicketScreen> {
 
   final _transactionRepository = TransactionRepository();
   final _jadwalRepository = ScheduleRepository();
+  final _userRepository = UserRepository();
 
   final _nameController = TextEditingController();
   final _quantityController = TextEditingController();
@@ -62,8 +66,15 @@ class _PurchaseTicketScreenState extends State<PurchaseTicketScreen> {
       // Set userId dari widget parameter
       setState(() {
         _userId = widget.userId;
-        _nameController.text = 'Pembeli';
       });
+
+      // Ambil data user dari database
+      final user = await _userRepository.getUserById(widget.userId);
+      if (user != null) {
+        setState(() {
+          _nameController.text = user.namaLengkap;
+        });
+      }
 
       // Ambil semua jadwal untuk film ini
       final jadwals = await _jadwalRepository.getJadwalByFilmId(
@@ -116,15 +127,7 @@ class _PurchaseTicketScreenState extends State<PurchaseTicketScreen> {
       }
 
       // Tampilkan loading
-      showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (context) => const Center(
-          child: CircularProgressIndicator(
-            valueColor: AlwaysStoppedAnimation<Color>(Color(0xFF0F172A)),
-          ),
-        ),
-      );
+      UIHelpers.showLoadingDialog(context);
 
       try {
         final transaction = TicketTransaction(
@@ -173,34 +176,10 @@ class _PurchaseTicketScreenState extends State<PurchaseTicketScreen> {
         }
       } catch (e) {
         if (mounted) {
-          Navigator.pop(context); // Tutup loading
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text('Terjadi kesalahan: $e'),
-              backgroundColor: Colors.red,
-            ),
-          );
+          UIHelpers.hideLoadingDialog(context); // Tutup loading
+          UIHelpers.showErrorSnackBar(context, 'Terjadi kesalahan: $e');
         }
       }
-    }
-  }
-
-  // Format currency ke Rupiah
-  String _formatCurrency(int amount) {
-    final formatter = NumberFormat.currency(
-      locale: 'id_ID',
-      symbol: 'Rp ',
-      decimalDigits: 0,
-    );
-    return formatter.format(amount);
-  }
-
-  String _formatScheduleTime(String isoDateTime) {
-    try {
-      final dateTime = DateTime.parse(isoDateTime);
-      return DateFormat('dd MMM yyyy, HH:mm').format(dateTime);
-    } catch (e) {
-      return isoDateTime; 
     }
   }
 
@@ -339,7 +318,7 @@ class _PurchaseTicketScreenState extends State<PurchaseTicketScreen> {
                     ),
                   ),
                   Text(
-                    _formatCurrency(_totalPrice),
+                    Formatters.formatCurrency(_totalPrice),
                     style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -571,7 +550,7 @@ class _PurchaseTicketScreenState extends State<PurchaseTicketScreen> {
                         ),
                         const SizedBox(width: 4),
                         Text(
-                          'Jam Tayang: ${_formatScheduleTime(widget.selectedSchedule)}',
+                          'Jam Tayang: ${Formatters.formatScheduleTime(widget.selectedSchedule)}',
                           style: const TextStyle(
                             fontSize: 13,
                             color: Colors.black54,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:utspam_b_0023_film/data/model/transaction_model.dart';
 import 'package:utspam_b_0023_film/data/repository/transaction_repository.dart';
 import 'package:utspam_b_0023_film/presentation/screens/transaction/transaction_detail_screen.dart';
+import 'package:utspam_b_0023_film/utils/formatters.dart';
 
 class MyTicketsScreen extends StatefulWidget {
   final int userId;
@@ -17,14 +17,6 @@ class _MyTicketsScreenState extends State<MyTicketsScreen> {
   final TransactionRepository _repository = TransactionRepository();
 
   // Format currency ke Rupiah
-  String _formatCurrency(int amount) {
-    final formatter = NumberFormat.currency(
-      locale: 'id_ID',
-      symbol: 'Rp ',
-      decimalDigits: 0,
-    );
-    return formatter.format(amount);
-  }
 
   void _reloadData() {
     setState(() {});
@@ -247,7 +239,7 @@ class _MyTicketsScreenState extends State<MyTicketsScreen> {
                     const SizedBox(height: 6),
                     // Total
                     Text(
-                      _formatCurrency(ticket.totalHarga),
+                      Formatters.formatCurrency(ticket.totalHarga),
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,

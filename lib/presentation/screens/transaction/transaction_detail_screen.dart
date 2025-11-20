@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:utspam_b_0023_film/data/model/transaction_model.dart';
 import 'package:utspam_b_0023_film/data/repository/transaction_repository.dart';
 import 'package:utspam_b_0023_film/presentation/screens/transaction/edit_transaction_screen.dart';
+import 'package:utspam_b_0023_film/utils/formatters.dart';
 
 class TransactionDetailScreen extends StatefulWidget {
   final int transactionId;
@@ -34,26 +34,6 @@ class _TransactionDetailScreenState extends State<TransactionDetailScreen> {
       _transaction = transaction;
       _isLoading = false;
     });
-  }
-
-  String _formatScheduleTime(String? isoDateTime) {
-    if (isoDateTime == null || isoDateTime.isEmpty) return '-';
-    try {
-      final dateTime = DateTime.parse(isoDateTime);
-      return DateFormat('dd MMM yyyy, HH:mm').format(dateTime);
-    } catch (e) {
-      return isoDateTime;
-    }
-  }
-
-  // Format currency ke Rupiah
-  String _formatCurrency(int amount) {
-    final formatter = NumberFormat.currency(
-      locale: 'id_ID',
-      symbol: 'Rp ',
-      decimalDigits: 0,
-    );
-    return formatter.format(amount);
   }
 
   // Fungsi untuk batalkan transaksi
@@ -212,7 +192,7 @@ class _TransactionDetailScreenState extends State<TransactionDetailScreen> {
                       ),
                       const SizedBox(width: 6),
                       Text(
-                        '${_formatCurrency((_transaction!.totalHarga / _transaction!.jumlahTiket).round())} / tiket',
+                        '${Formatters.formatCurrency((_transaction!.totalHarga / _transaction!.jumlahTiket).round())} / tiket',
                         style: const TextStyle(
                           fontSize: 14,
                           color: Colors.black54,
@@ -241,7 +221,7 @@ class _TransactionDetailScreenState extends State<TransactionDetailScreen> {
                   _buildDetailRow(
                     Icons.access_time,
                     'Jadwal Film',
-                    _formatScheduleTime(_transaction!.schedule),
+                    Formatters.formatScheduleTime(_transaction!.schedule),
                   ),
                   const SizedBox(height: 12),
 
@@ -326,7 +306,7 @@ class _TransactionDetailScreenState extends State<TransactionDetailScreen> {
                               ),
                             ),
                             Text(
-                              _formatCurrency(
+                              Formatters.formatCurrency(
                                 (_transaction!.totalHarga /
                                         _transaction!.jumlahTiket)
                                     .round(),
@@ -350,7 +330,7 @@ class _TransactionDetailScreenState extends State<TransactionDetailScreen> {
                               ),
                             ),
                             Text(
-                              _formatCurrency(_transaction!.totalHarga),
+                              Formatters.formatCurrency(_transaction!.totalHarga),
                               style: const TextStyle(
                                 fontSize: 14,
                                 color: Colors.black87,
@@ -374,7 +354,9 @@ class _TransactionDetailScreenState extends State<TransactionDetailScreen> {
                               ),
                             ),
                             Text(
-                              _formatCurrency(_transaction!.totalHarga),
+                              Formatters.formatCurrency(
+                                _transaction!.totalHarga,
+                              ),
                               style: const TextStyle(
                                 fontSize: 22,
                                 fontWeight: FontWeight.bold,

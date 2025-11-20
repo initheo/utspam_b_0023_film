@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:intl/intl.dart';
 import 'package:utspam_b_0023_film/data/model/transaction_model.dart';
 import 'package:utspam_b_0023_film/data/repository/transaction_repository.dart';
+import 'package:utspam_b_0023_film/utils/formatters.dart';
 
 class EditTransactionScreen extends StatefulWidget {
   final TicketTransaction transaction;
@@ -59,27 +59,6 @@ class _EditTransactionScreenState extends State<EditTransactionScreen> {
       _quantity = int.tryParse(_quantityController.text) ?? 0;
       _totalPrice = _pricePerTicket * _quantity;
     });
-  }
-
-  // Format currency ke Rupiah
-  String _formatCurrency(int amount) {
-    final formatter = NumberFormat.currency(
-      locale: 'id_ID',
-      symbol: 'Rp ',
-      decimalDigits: 0,
-    );
-    return formatter.format(amount);
-  }
-
-  // Format jadwal dari ISO DateTime ke format lengkap dengan tanggal dan waktu
-  String _formatScheduleTime(String? isoDateTime) {
-    if (isoDateTime == null || isoDateTime.isEmpty) return '-';
-    try {
-      final dateTime = DateTime.parse(isoDateTime);
-      return DateFormat('dd MMM yyyy, HH:mm').format(dateTime);
-    } catch (e) {
-      return isoDateTime;
-    }
   }
 
   // Fungsi untuk update transaksi
@@ -204,12 +183,12 @@ class _EditTransactionScreenState extends State<EditTransactionScreen> {
                   ),
                   const SizedBox(height: 6),
                   Text(
-                    'Jadwal: ${_formatScheduleTime(widget.transaction.schedule)}',
+                    'Jadwal: ${Formatters.formatScheduleTime(widget.transaction.schedule)}',
                     style: const TextStyle(fontSize: 14, color: Colors.black54),
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    'Harga per tiket: ${_formatCurrency(_pricePerTicket)}',
+                    'Harga per tiket: ${Formatters.formatCurrency(_pricePerTicket)}',
                     style: const TextStyle(fontSize: 14, color: Colors.black54),
                   ),
                 ],
@@ -341,7 +320,7 @@ class _EditTransactionScreenState extends State<EditTransactionScreen> {
                     ),
                   ),
                   Text(
-                    _formatCurrency(_totalPrice),
+                    Formatters.formatCurrency(_totalPrice),
                     style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,

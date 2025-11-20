@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:utspam_b_0023_film/data/model/film_model.dart';
 import 'package:utspam_b_0023_film/data/repository/film_repository.dart';
 import 'package:utspam_b_0023_film/presentation/screens/transaction/purchase_ticket_screen.dart';
+import 'package:utspam_b_0023_film/utils/formatters.dart';
 
 class FilmsScreenContent extends StatefulWidget {
   final int userId;
@@ -31,31 +31,7 @@ class _FilmsScreenContentState extends State<FilmsScreenContent> {
   String? _selectedGenre; // Genre yang sedang dipilih
   String _searchQuery = ''; // Query pencarian
 
-  /// HELPER: Format hanya waktu (untuk tombol jadwal)
-  /// Input: "2024-01-15T14:30:00"
-  /// Output: "14:30"
-  String _formatTimeOnly(String isoDateTime) {
-    try {
-      final dateTime = DateTime.parse(isoDateTime);
-      return DateFormat('HH:mm').format(dateTime);
-    } catch (e) {
-      return isoDateTime;
-    }
-  }
-
   /// HELPER: Format hanya tanggal (untuk header grup)
-  /// Input: "2024-01-15T14:30:00"
-  /// Output: "Monday, 15 Jan 2024"
-  String _formatDateOnly(String isoDateTime) {
-    try {
-      final dateTime = DateTime.parse(isoDateTime);
-      return DateFormat('EEEE, dd MMM yyyy').format(dateTime);
-    } catch (e) {
-      return isoDateTime;
-    }
-  }
-
-  /// HELPER: Kelompokkan jadwal berdasarkan tanggal
   /// Mengubah list jadwal menjadi Map dengan key tanggal
   ///
   /// Contoh Input: ["2024-01-15T14:30:00", "2024-01-15T16:00:00", "2024-01-16T10:00:00"]
@@ -68,8 +44,7 @@ class _FilmsScreenContentState extends State<FilmsScreenContent> {
 
     for (var schedule in schedules) {
       try {
-        final dateTime = DateTime.parse(schedule);
-        final dateKey = DateFormat('yyyy-MM-dd').format(dateTime);
+        final dateKey = Formatters.formatDateKey(schedule);
 
         // Buat list baru jika tanggal belum ada
         if (!grouped.containsKey(dateKey)) {
@@ -409,7 +384,7 @@ class _FilmsScreenContentState extends State<FilmsScreenContent> {
         Padding(
           padding: const EdgeInsets.only(top: 12, bottom: 8),
           child: Text(
-            _formatDateOnly(schedules.first),
+            Formatters.formatDateFull(schedules.first),
             style: const TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w600,
@@ -425,7 +400,7 @@ class _FilmsScreenContentState extends State<FilmsScreenContent> {
           spacing: 8,
           runSpacing: 8,
           children: schedules.map((schedule) {
-            final timeOnly = _formatTimeOnly(schedule);
+            final timeOnly = Formatters.formatTimeOnly(schedule);
             return _buildScheduleButton(context, film, timeOnly, schedule);
           }).toList(),
         ),
@@ -513,8 +488,7 @@ class FilmScheduleDetailScreen extends StatelessWidget {
   String _formatFullSchedule(String? isoDateTime) {
     if (isoDateTime == null || isoDateTime.isEmpty) return selectedSchedule;
     try {
-      final dateTime = DateTime.parse(isoDateTime);
-      return DateFormat('EEEE, dd MMM yyyy - HH:mm').format(dateTime);
+      return Formatters.formatDateTimeFull(isoDateTime);
     } catch (e) {
       return selectedSchedule;
     }
