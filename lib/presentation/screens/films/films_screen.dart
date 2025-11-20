@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:utspam_b_0023_film/data/model/film_model.dart';
 import 'package:utspam_b_0023_film/data/repository/film_repository.dart';
+import 'package:utspam_b_0023_film/presentation/screens/transaction/purchase_ticket_screen.dart';
 
 class FilmsScreenContent extends StatefulWidget {
   final int userId;
