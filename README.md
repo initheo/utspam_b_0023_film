@@ -5,8 +5,9 @@ Aplikasi mobile untuk pembelian tiket film berbasis Flutter dengan database SQLi
 ## Informasi Proyek
 
 - **Mata Kuliah**: Pemrograman Mobile
-- **Kelas**: B
-- **NIM**: 0023
+- **Kelas**: IF-5B
+- **NIM**: 3012310023
+- **Nama**: Muhammad Muqoffin Nuha
 - **Kategori**: Aplikasi Film
 - **Platform**: Android & iOS (Flutter)
 - **Database**: SQLite (sqflite)
