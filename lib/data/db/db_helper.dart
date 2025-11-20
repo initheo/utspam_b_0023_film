@@ -109,11 +109,11 @@ class DBHelper {
   Future<void> _insertDummyData(Database db) async {
     // Insert dummy user
     await db.insert(tableUser, {
-      'nama_lengkap': 'Muhammad Muqoffin Nuha',
-      'email': 'muqoffin@mtix.com',
-      'alamat': 'Gresik, Indonesia',
+      'nama_lengkap': 'User Test',
+      'email': 'user@test.com',
+      'alamat': 'Jakarta, Indonesia',
       'nomor_telepon': '081234567890',
-      'username': 'muqoffin',
+      'username': 'user',
       'password': 'password123',
     });
 
