@@ -118,21 +118,6 @@ dev_dependencies:
   flutter_lints: ^5.0.0
 ```
 
-### Clean Architecture Pattern
-
-- **Presentation Layer**: UI dan Widget Flutter
-- **Domain Layer**: Business logic (Repository Pattern)
-- **Data Layer**:
-  - Database (SQLite dengan sqflite)
-  - DAO (Data Access Object)
-  - Models
-- **Utils Layer**:
-  - Reusable utility classes
-  - Formatters (currency, datetime)
-  - Validators (form validation)
-  - UI Helpers (loading, snackbar, dialogs)
-  - App Colors (theme constants)
-
 ### Manajemen Data Pengguna
 
 Aplikasi ini menggunakan **Constructor Passing Pattern** untuk mengelola data pengguna yang sedang login:
@@ -242,7 +227,7 @@ https://github.com/user-attachments/assets/f769ea41-af25-48d8-ad36-86c952b892ad
 
 **Isi Video:**
 
-1. Splash Screen & Auto-navigation
+1. Onboarding
 2. Register & Login
 3. Home Dashboard
 4. Browse Films
