@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:utspam_b_0023_film/data/repository/user_repository.dart';
 import 'package:utspam_b_0023_film/presentation/screens/auth/forgot_password_screen.dart';
 import 'package:utspam_b_0023_film/presentation/screens/auth/register_screen.dart';
+import 'package:utspam_b_0023_film/presentation/screens/main_navigation.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -56,6 +57,16 @@ class _LoginScreenState extends State<LoginScreen> {
         // Navigasi ke halaman utama dengan kirim user data
         if (mounted) {
           // Cek widget masih aktif
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => MainNavigation(
+                userId: user.id!,
+                userName: user.namaLengkap,
+                userEmail: user.email,
+              ),
+            ),
+          );
         }
       } else {
         // LOGIN GAGAL
