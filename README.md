@@ -24,7 +24,7 @@ Aplikasi mobile untuk pembelian tiket film berbasis Flutter dengan database SQLi
 ### 2. Manajemen Film
 
 - **Daftar Film**: Menampilkan semua film yang tersedia
-- **Detail Film**: Informasi lengkap tentang film (judul, genre, durasi, rating, sinopsis)
+- **Detail Film**: Informasi lengkap tentang film (judul, genre, poster, harga tiket)
 - **Pencarian**: Filter film berdasarkan kriteria tertentu
 
 ### 3. Pembelian Tiket
