@@ -1,4 +1,4 @@
-<img width="1320" height="2868" alt="Simulator Screenshot - iPhone 17 Pro Max - 2025-11-22 at 21 25 39" src="https://github.com/user-attachments/assets/75b395e8-d65f-4bf7-b299-aa19fcf809dc" /># M-TIX - Aplikasi Pembelian Tiket Film
+# M-TIX - Aplikasi Pembelian Tiket Film
 
 Aplikasi mobile untuk pembelian tiket film berbasis Flutter dengan database SQLite lokal. Proyek ini merupakan bagian dari Ujian Tengah Semester (UTS) Pemrograman Mobile.
 
@@ -228,47 +228,70 @@ https://github.com/user-attachments/assets/f769ea41-af25-48d8-ad36-86c952b892ad
 **Isi Video:**
 
 1. Onboarding
-   <img width="1320" height="2868" alt="Simulator Screenshot - iPhone 17 Pro Max - 2025-11-22 at 21 22 52" src="https://github.com/user-attachments/assets/dc63e15c-f327-4b76-973e-9aa68883436b" />
+   
+   <img width="200" height="400" alt="Simulator Screenshot - iPhone 17 Pro Max - 2025-11-22 at 21 22 52" src="https://github.com/user-attachments/assets/dc63e15c-f327-4b76-973e-9aa68883436b" />
+
 
 2. Register & Login
-   <img width="1320" height="2868" alt="Simulator Screenshot - iPhone 17 Pro Max - 2025-11-22 at 21 23 10" src="https://github.com/user-attachments/assets/10024b94-ad0e-472d-9b46-fb6fc7c8e7a9" />
-   <img width="1320" height="2868" alt="Simulator Screenshot - iPhone 17 Pro Max - 2025-11-22 at 21 23 21" src="https://github.com/user-attachments/assets/f21bfd76-ae3d-4dac-a3cc-b9e5a2cfb599" />
+   
+   <img width="200" height="400" alt="Simulator Screenshot - iPhone 17 Pro Max - 2025-11-22 at 21 23 10" src="https://github.com/user-attachments/assets/10024b94-ad0e-472d-9b46-fb6fc7c8e7a9" />
+   <img width="200" height="400" alt="Simulator Screenshot - iPhone 17 Pro Max - 2025-11-22 at 21 23 21" src="https://github.com/user-attachments/assets/f21bfd76-ae3d-4dac-a3cc-b9e5a2cfb599" />
+
 
 3. Home Dashboard
-   <img width="1320" height="2868" alt="Simulator Screenshot - iPhone 17 Pro Max - 2025-11-22 at 21 23 47" src="https://github.com/user-attachments/assets/4003c078-cc21-4382-b73f-47d128ddef34" />
+
+   <img width="200" height="400" alt="Simulator Screenshot - iPhone 17 Pro Max - 2025-11-22 at 21 23 47" src="https://github.com/user-attachments/assets/4003c078-cc21-4382-b73f-47d128ddef34" />
+
 
 4. Browse Films
-   <img width="1320" height="2868" alt="Simulator Screenshot - iPhone 17 Pro Max - 2025-11-22 at 21 23 53" src="https://github.com/user-attachments/assets/2d59b47a-5c4e-433b-b7f7-823ac742ae6e" />
+
+   <img width="200" height="400" alt="Simulator Screenshot - iPhone 17 Pro Max - 2025-11-22 at 21 23 53" src="https://github.com/user-attachments/assets/2d59b47a-5c4e-433b-b7f7-823ac742ae6e" />
+
 
 5. Purchase Ticket Flow (Pilih film → jadwal → jumlah tiket → pembayaran)
-   <img width="1320" height="2868" alt="Simulator Screenshot - iPhone 17 Pro Max - 2025-11-22 at 21 24 13" src="https://github.com/user-attachments/assets/70836d0b-2db5-4492-85df-905205c70ec9" />
-   <img width="1320" height="2868" alt="Simulator Screenshot - iPhone 17 Pro Max - 2025-11-22 at 21 24 29" src="https://github.com/user-attachments/assets/ed1a736c-f2d8-4dd7-9d90-6b5a71497027" />
-   <img width="1320" height="2868" alt="Simulator Screenshot - iPhone 17 Pro Max - 2025-11-22 at 21 24 40" src="https://github.com/user-attachments/assets/1626c064-c19a-41f3-99bd-3cdc3d140593" />
 
-7. Transaction History
-   <img width="1320" height="2868" alt="Simulator Screenshot - iPhone 17 Pro Max - 2025-11-22 at 21 23 59" src="https://github.com/user-attachments/assets/d2fac315-c055-49da-a847-a57c41bbca38" />
+   <img width="200" height="400" alt="Simulator Screenshot - iPhone 17 Pro Max - 2025-11-22 at 21 24 13" src="https://github.com/user-attachments/assets/70836d0b-2db5-4492-85df-905205c70ec9" />
+   <img width="200" height="400" alt="Simulator Screenshot - iPhone 17 Pro Max - 2025-11-22 at 21 24 29" src="https://github.com/user-attachments/assets/ed1a736c-f2d8-4dd7-9d90-6b5a71497027" />
+   <img width="200" height="400" alt="Simulator Screenshot - iPhone 17 Pro Max - 2025-11-22 at 21 24 40" src="https://github.com/user-attachments/assets/1626c064-c19a-41f3-99bd-3cdc3d140593" />
 
-8. Transaction Detail dengan Card Masking
-   <img width="1320" height="2868" alt="image" src="https://github.com/user-attachments/assets/25fd46b2-07de-4f4d-8298-b5074d63cd78" />
 
-9. Edit Transaction
-    <img width="1320" height="2868" alt="Simulator Screenshot - iPhone 17 Pro Max - 2025-11-22 at 21 25 39" src="https://github.com/user-attachments/assets/80274f0e-c02c-4c45-9977-8bb6f615f79a" />
+6. Transaction History
 
-11. Cancel Transaction
-    <img width="1320" height="2868" alt="image" src="https://github.com/user-attachments/assets/ef27f66b-613d-42b5-9ed5-a099b5166c57" />
-    <img width="1320" height="2868" alt="image" src="https://github.com/user-attachments/assets/0b3f4591-6589-4f2b-ac72-f9e3a7b90c54" />
+   <img width="200" height="400" alt="Simulator Screenshot - iPhone 17 Pro Max - 2025-11-22 at 21 23 59" src="https://github.com/user-attachments/assets/d2fac315-c055-49da-a847-a57c41bbca38" />
+
+
+7. Transaction Detail dengan Card Masking
+
+   <img width="200" height="400" alt="image" src="https://github.com/user-attachments/assets/25fd46b2-07de-4f4d-8298-b5074d63cd78" />
+
+
+8. Edit Transaction
+
+   <img width="200" height="400" alt="Simulator Screenshot - iPhone 17 Pro Max - 2025-11-22 at 21 25 39" src="https://github.com/user-attachments/assets/80274f0e-c02c-4c45-9977-8bb6f615f79a" />
+
+
+9. Cancel Transaction
+
+   <img width="200" height="400" alt="image" src="https://github.com/user-attachments/assets/ef27f66b-613d-42b5-9ed5-a099b5166c57" />
+   <img width="200" height="400" alt="image" src="https://github.com/user-attachments/assets/0b3f4591-6589-4f2b-ac72-f9e3a7b90c54" />
+
     
-13. Profile Management (View, Edit, Change Password)
-    <img width="1320" height="2868" alt="Simulator Screenshot - iPhone 17 Pro Max - 2025-11-22 at 21 24 04" src="https://github.com/user-attachments/assets/7a0cd5a9-c628-4377-9a05-3570e158be14" />
-    <img width="1320" height="2868" alt="Simulator Screenshot - iPhone 17 Pro Max - 2025-11-22 at 21 25 52" src="https://github.com/user-attachments/assets/901f2c24-8823-4898-9fdd-5216f812e291" />
-    <img width="1320" height="2868" alt="Simulator Screenshot - iPhone 17 Pro Max - 2025-11-22 at 21 25 58" src="https://github.com/user-attachments/assets/3989bfab-edca-473a-be60-5b568ccb52bb" />
+10. Profile Management (View, Edit, Change Password)
 
-15. Forgot Password
-    <img width="1320" height="2868" alt="image" src="https://github.com/user-attachments/assets/bc6262f3-312c-4a3b-a110-083b06728474" />
-    <img width="1320" height="2868" alt="image" src="https://github.com/user-attachments/assets/1fe776f1-dce3-4496-84b4-dfce8078d26f" />
+    <img width="200" height="400" alt="Simulator Screenshot - iPhone 17 Pro Max - 2025-11-22 at 21 24 04" src="https://github.com/user-attachments/assets/7a0cd5a9-c628-4377-9a05-3570e158be14" />
+    <img width="200" height="400" alt="Simulator Screenshot - iPhone 17 Pro Max - 2025-11-22 at 21 25 52" src="https://github.com/user-attachments/assets/901f2c24-8823-4898-9fdd-5216f812e291" />
+    <img width="200" height="400" alt="Simulator Screenshot - iPhone 17 Pro Max - 2025-11-22 at 21 25 58" src="https://github.com/user-attachments/assets/3989bfab-edca-473a-be60-5b568ccb52bb" />
+
+
+11. Forgot Password
+
+    <img width="200" height="400" alt="image" src="https://github.com/user-attachments/assets/bc6262f3-312c-4a3b-a110-083b06728474" />
+    <img width="200" height="400" alt="image" src="https://github.com/user-attachments/assets/1fe776f1-dce3-4496-84b4-dfce8078d26f" />
+
     
-17. Logout
-    <img width="1320" height="2868" alt="image" src="https://github.com/user-attachments/assets/bd0c6a1a-771c-4885-8c47-8c15bf007ce2" />
+12. Logout
+
+    <img width="200" height="400" alt="image" src="https://github.com/user-attachments/assets/bd0c6a1a-771c-4885-8c47-8c15bf007ce2" />
 
 
 ---
